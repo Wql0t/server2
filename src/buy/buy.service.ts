@@ -7,6 +7,6 @@ export class AppService2 {
     return { status: 'ok'};
   }
   getBill(title:string,price:string) {
-    return { status: `${title} был успешно куплен по цене в $${price}` };
+    return { status: `${title} был успешно куплен\nцена: ${price}` };
   }
 }

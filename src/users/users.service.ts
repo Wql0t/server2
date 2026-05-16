@@ -5,8 +5,7 @@ import { User } from "./user.entity";
 import { Role } from "src/common/enum/role.enum";
 import { CreateUserDto } from "./dto/create-user.dto";
 import * as bcrypt from "bcrypt";
-// import { CreateUserDto } from "./dto/create-user.dto";
-// import  *  as  bcrypt from 'bcrypt';
+
 
 @Injectable()
 export class UserService{
@@ -26,7 +25,7 @@ export class UserService{
   }
  async create(dto:CreateUserDto){
     const hashedPassword=await bcrypt.hash(dto.password,10);
-    const user =this.repo.create({
+    const user = this.repo.create({
       email:dto.email,
       password:hashedPassword,
       role:dto.role
