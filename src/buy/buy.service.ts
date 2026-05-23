@@ -9,4 +9,12 @@ export class AppService2 {
   getBill(title:string,price:string) {
     return { status: `${title} был успешно куплен\nцена: ${price}` };
   }
+  getBillAll(price:string) {
+    console.log("h")
+    return { status: `Успешно!\nцена: ${price}` };
+    
+  }
+  getProducts() {
+    
+  }
 }
