@@ -40,6 +40,17 @@ export class AuthService{
             access_token:this.jwtService.sign(payload),
         };
     }
+    
+    async delete(email:string) {
+        const user = await this.usersService.findByEmail(email);
+        if (!user) {
+            throw new UnauthorizedException('Пользователь с таким email не найден');
+        }
+        await this.usersService.remove(email);
+
+
+        return { message: `Пользователь с email ${email} успешно удален` };
+    }
     async getAll() {
         const users = await this.usersService.findAll();
         return { status: users };

@@ -23,6 +23,10 @@ export class UserService{
   async findAll() {
     return this.repo.find()
   }
+  async remove(email: string): Promise<void> {
+        await this.repo.delete({ email });
+    }
+
  async create(dto:CreateUserDto){
     const hashedPassword=await bcrypt.hash(dto.password,10);
     const user = this.repo.create({

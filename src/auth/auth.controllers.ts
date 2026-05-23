@@ -12,6 +12,10 @@ export class AuthController{
     register(@Body() body:{email:string;password:string}){
         return this.authService.register(body.email,body.password);
     }
+    @Post('delete')
+    delete(@Body() body:{email:string}){
+        return this.authService.delete(body.email);
+    }
     @Get('getAll')
     getAll() {
         return this.authService.getAll();
