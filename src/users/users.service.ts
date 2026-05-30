@@ -23,6 +23,10 @@ export class UserService{
   async findAll() {
     return this.repo.find()
   }
+  async hasAdmin(): Promise<boolean> {
+    const count = await this.repo.count({ where: { role: Role.ADMIN } });
+    return count > 0;
+  }
   async remove(email: string): Promise<void> {
         await this.repo.delete({ email });
     }

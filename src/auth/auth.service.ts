@@ -12,18 +12,11 @@ export class AuthService{
         private readonly usersService:UserService,
         private readonly jwtService:JwtService
     ){}
-    async register(email:string,password:string, role?:Role){
+    async register(email:string,password:string){
         return this.usersService.create({
             email,
             password,
-            role: role ?? Role.USER
-        });
-    }
-    async registerCustom(email:string,password:string, Role:Role){
-        return this.usersService.create({
-            email,
-            password,
-            role:Role
+            role: Role.USER
         });
     }
     async login(email:string,password:string){
